@@ -34,8 +34,7 @@ class Server{
 				System.out.println(bufferContent);
 				bufferContent = bufferReader.readLine();
 			}
-			// after reading headers close buffer
-			bufferReader.close();
+
 
 			// RESPONSE
 			String response = "response from server to the client";
@@ -44,6 +43,8 @@ class Server{
 
 			// convert String to Bytes to send a response back
 			outS.write(response.getBytes("UTF-8"));
+
+			bufferReader.close();
 
 		}catch(IOException err){
 			System.out.println(err);
